@@ -47,7 +47,9 @@ const Footer = () => {
               </div>
             </div>
             <div>
+            <Link to={ '/'}>
             <img style={{height:"140px"}} src={process.env.PUBLIC_URL + 'image/image 1.png'} />
+                </Link>
         </div>
         <div style={styles.copyDiv}>
             <div >Copyright © 2020 Small change. Big change.</div>

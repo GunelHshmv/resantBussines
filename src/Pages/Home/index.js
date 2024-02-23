@@ -6,8 +6,47 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import EastSharpIcon from "@mui/icons-material/EastSharp";
 import Footer from "../../Footer";
+import styled from "styled-components";
 
 const Home = () => {
+ const HovDiv = styled.div`
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #272727;
+  width: 300px;
+  height: 360px;
+  cursor: pointer;
+  &:hover {
+    background-color: grey;
+  }
+`;
+const ImgDiv = styled.div`
+  width: 610px;
+  height: auto; 
+  overflow: hidden; 
+  transition: width 0.3s ease; 
+
+  &:hover {
+    width: 680px;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    height: auto; 
+    transition: transform 0.3s ease; 
+  }
+
+  &:hover img {
+    transform: scale(1.1); 
+  }
+`;
+
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -75,8 +114,12 @@ const Home = () => {
             <p>Üstünlüklərimiz</p>
           </span>
           <div style={styles.ustunDivs}>
-            {firstLine.map((item) => (
-              <div style={styles.ustunBir}>
+            
+            {firstLine.map((item,index) => (
+              
+              <HovDiv key={index}  >
+            
+            
                 <img
                   src={process.env.PUBLIC_URL + "image/Mask group.png"}
                   alt="Maske"
@@ -102,7 +145,7 @@ const Home = () => {
                     </Button>
                   </Link>
                 </ThemeProvider>
-              </div>
+              </HovDiv>
             ))}
           </div>
         </div>
@@ -110,9 +153,10 @@ const Home = () => {
         <div style={styles.layiDiv}>
           <span style={styles.ustunSpan}>Layihələr</span>
           <div style={styles.layiImgDiv}>
-            <div style={{ position: "relative" }}>
+            <ImgDiv>
+            <div style={{ position: "relative",width:"100% "}}>
               <Link to={"/layihələr"}>
-                <Box
+               <Box
                   sx={{
                     "&:before": {
                       content: '""',
@@ -124,7 +168,8 @@ const Home = () => {
                   }}
                 ></Box>
               </Link>
-              <img
+             
+             <img
                 style={styles.layiImg}
                 src={process.env.PUBLIC_URL + "image/Rectangle 1.png"}
                 alt="Maske"
@@ -143,6 +188,9 @@ const Home = () => {
                 />
               </div>
             </div>
+            </ImgDiv>
+
+                  <ImgDiv>
             <div style={{ position: "relative" }}>
               <Link to={"/layihələr"}>
                 <Box
@@ -174,11 +222,12 @@ const Home = () => {
                 />
               </div>
             </div>
+            </ImgDiv>
           </div>
         </div>
 
         <div style={styles.newsDiv}>
-          <span style={styles.ustunSpan}>Xəbərlər</span>
+          <span style={{...styles.ustunSpan,marginTop:'1px'}}>Xəbərlər</span>
           <div style={styles.xeberDivs} >
 
 

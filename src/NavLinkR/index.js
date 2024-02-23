@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import Customized from './Customized';
 import styles from '../Styles';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
 const NavLinkR = () => {
-    const [links,setLinks]=useState(["Ana Səhifə" ,"haqqımızda", "layihələr" ,"xəbərlər", "komandamız", "əlaqə"])
+    const [links,setLinks]=useState([{to:"/",text:"Ana sehife"} ,{to:"/haqqımızda",text:"Haqqımızda"}, {to:"/layihələr",text:"Layihələr"} ,{to:"/xəbərlər",text:"Xəbərlər"}, {to:"/komandamız",text:"Komandamız"}, {to:"/əlaqə",text:"Əlaqə"}])
     return <div style={styles.navlink}>
         <div>
+            <Link to={ '/'}>
             <img src={process.env.PUBLIC_URL + 'image/image 1.png'} />
+            </Link>
         </div>
         <div style={styles.links} >
         {
             links.map((item)=>(
-                <Customized text={item.charAt(0).toUpperCase() + item.slice(1)} to={`/${item}`}/>
+                <Customized text={item.text } to={item.to}/>
             ))
         }
         </div>
@@ -21,7 +24,6 @@ const NavLinkR = () => {
             </div>
 <div style={{color:"white"}}>
 <SearchIcon fontSize='large' />
-
 </div>
         </div>
     </div>;

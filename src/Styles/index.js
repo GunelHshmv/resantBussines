@@ -91,15 +91,7 @@ const styles = {
     flexDirection: "row",
     gap: "14px",
   },
-  ustunBir: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#272727",
-    width: "300px",
-    height: "360px",
-  },
+
   oxuBtn: {
     width: "200px",
     height: "36px",
@@ -117,13 +109,11 @@ const styles = {
   layiImgDiv: {
     display: "flex",
     flexDirection: "row",
-    gap: "16px",
     marginTop: "40px",
+    height:"460px"
   },
 
-  layiImg: {
-    width: "610px",
-  },
+ 
   resmSpan: {
     position: "absolute",
     color: "white",

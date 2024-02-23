@@ -1,0 +1,14 @@
+.active{
+    text-decoration: underline yellow;
+    position: relative; /* Ensure the parent is positioned relatively */
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; 
+  width: calc(100% - 4px); 
+  border-bottom: 2px solid yellow; 
+}
+  
